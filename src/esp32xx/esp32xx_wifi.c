@@ -105,6 +105,7 @@ static void esp32xx_wifi_event_handler(void *ctx, esp_event_base_t ev_base,
     case WIFI_EVENT_STA_CONNECTED: {
       const wifi_event_sta_connected_t *info = ev_data;
       dei.ev = MGOS_WIFI_EV_STA_CONNECTED;
+      printf("%d \n",dei.ev);
       memcpy(dei.sta_connected.bssid, info->bssid, 6);
       dei.sta_connected.channel = info->channel;
       s_connecting = false;
